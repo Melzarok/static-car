@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/locomotive-scroll.css" />
+  </head>
+
+  <body>
+    <div id="preloader" class="">
+      <div class="loader">Loading...</div>
+    </div>
+
+    <script>
+      const styles = `
+            #preloader {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: black;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              z-index: 9999;
+              color: white;
+              font-size: 36px;
+              transition: opacity 2s;
+            }
+            @property --a {
+              initial-value: 0deg;
+              inherits: false;
+              syntax: '<angle>';
+            }
+            .loader {
+              padding: 2rem 4rem;
+              font-family: monospace;
+              font-weight: bold;
+              color: #fff;
+              border-style: solid;
+              border-width: 1vmin;
+              font-size: 2rem;
+              border-image: conic-gradient(white var(--a), transparent calc(var(--a) + 0.5deg)) 30;
+              animation: load 2s infinite ease-in-out;
+            }
+            @keyframes load {
+              0%, 10% {
+                --a: 0deg;
+              }
+              100% {
+                --a: 360deg;
+              }
+            }
+          `;
+      const styleSheet = document.createElement("style");
+      styleSheet.textContent = styles;
+      document.head.appendChild(styleSheet);
+
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          const preloader = document.getElementById("preloader");
+          if (preloader) {
+            preloader.style.opacity = "0";
+            setTimeout(function () {
+              preloader.style.display = "none";
+            }, 2000);
+          }
+        }, 300);
+      });
+    </script>
+    <div id="main">
+      <div id="page">
+        <div id="loop">
+          <div class="text">
+            <h1>
+              <span>P</span>
+              <span>U</span>
+              <span>L</span>
+              <span>S</span>
+              <span>E</span>
+            </h1>
+            <h3 class="hero-description">
+              Рушимо у майбутнє з чистою енергією
+            </h3>
+          </div>
+        </div>
+
+        <canvas></canvas>
+      </div>
+
+      <div id="page1">
+        <div class="text-wrap">
+          <h3 class="page1-head">Екологічні Інновації</h3>
+          <p class="page1-para">
+            Водневі авто без викидів для зеленішої планети
+          </p>
+        </div>
+      </div>
+      <div id="page2">
+        <div class="text-wrap">
+          <h3 ="">Новий Рівень Потужності</h3>
+          <p>Сильні, ефективні та тихі – майбутнє транспорту вже тут</p>
+        </div>
+      </div>
+      <div id="page3">
+        <div class="text-wrap">
+          <h3>Стале Майбутнє</h3>
+          <p>Працюють на водні, прокладаючи шлях до відновлюваної енергії</p>
+        </div>
+      </div>
+      <div id="page1"></div>
+      <div id="page3">
+        <div class="text-wrap">
+          <h3>Мрії в Русі</h3>
+          <p>Перетворюємо бачення чистого завтра на реальність сьогодні</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/locomotive-scroll.min.js"></script>
+    <script src="./js/gsap.min.js"></script>
+    <script src="./js/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
